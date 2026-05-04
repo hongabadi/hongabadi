@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hong Abadi Network Engineer</title>
+
+<style>
+/* MODAL */
+.modal {
+    display:none;
+    position:fixed;
+    z-index:9999;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.7);
+}
+
+/* isi modal */
+.modal-content {
+    background:white;
+    margin:10% auto;
+    padding:30px;
+    width:90%;
+    max-width:400px;
+    border-radius:15px;
+    text-align:center;
+    animation:fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {opacity:0; transform:scale(0.8);}
+    to {opacity:1; transform:scale(1);}
+}
+
+/* tombol close */
+.close {
+    position:absolute;
+    right:20px;
+    top:10px;
+    font-size:25px;
+    cursor:pointer;
+}
+
+/* pilihan */
+.cctv-options {
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    margin-top:20px;
+}
+
+.option {
+    padding:15px;
+    border-radius:10px;
+    background:#00c853;
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.option:hover {
+    background:#009624;
+    transform:scale(1.05);
+}
+    .logo img {
+    height:40px;
+    width:auto;
+}
+       
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* NAVBAR */
+nav {
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:999;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(10px);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 20px;
+}
+
+.logo {
+    color:#fff;
+    font-weight:bold;
+    font-size:18px;
+}
+
+/* MENU */
+.nav-links {
+    display:flex;
+    gap:20px;
+}
+
+.nav-links a {
+    color:#fff;
+    text-decoration:none;
+    font-size:14px;
+    transition:0.3s;
+}
+
+.nav-links a:hover {
+    color:#00c853;
+}
+
+/* HAMBURGER */
+.menu-toggle {
+    display:none;
+    font-size:24px;
+    color:white;
+    cursor:pointer;
+}
+
+/* HERO */
+.hero {
+    position:relative;
+    height:100vh;
+    overflow:hidden;
+    color:white;
+}
+
+.slide {
+    position:absolute;
+    width:100%;
+    height:100%;
+    background-size:cover;
+    background-position:center;
+    opacity:0;
+    transform:scale(1.1);
+    transition: opacity 1.5s ease, transform 6s ease;
+}
+
+.slide.active {
+    opacity:1;
+    transform:scale(1);
+}
+
+.overlay {
+    position:absolute;
+    width:100%;
+    height:100%;
+    background: linear-gradient(
+        to right,
+        rgba(0,0,0,0.8),
+        rgba(0,0,0,0.4)
+    );
+    z-index:1;
+}
+
+.hero-content {
+    position:relative;
+    z-index:2;
+    top:50%;
+    transform:translateY(-50%);
+    padding:0 40px;
+    max-width:700px;
+    animation: fadeUp 1.5s ease;
+}
+
+.hero h1 {
+    font-size:60px;
+    margin-bottom:20px;
+}
+
+.hero p {
+    font-size:18px;
+    margin-bottom:30px;
+}
+
+.btn {
+    display:inline-block;
+    padding:12px 25px;
+    background:#00c853;
+    color:white;
+    text-decoration:none;
+    border-radius:30px;
+}
+
+/* ANIMATION */
+@keyframes fadeUp {
+    from {
+        opacity:0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity:1;
+        transform: translateY(-50%);
+    }
+}
+
+/* SECTION */
+section {
+    padding:80px 20px;
+    text-align:center;
+}
+
+.section-title {
+    font-size:28px;
+    margin-bottom:20px;
+}
+
+/* SERVICES */
+.services {
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap:25px;
+}
+
+.card {
+    background: linear-gradient(135deg, #00c853, #009624);
+    color:white;
+    padding:30px 20px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    transition:0.4s;
+    cursor:pointer;
+    position:relative;
+    overflow:hidden;
+}
+
+.card i {
+    font-size:40px;
+    margin-bottom:15px;
+}
+
+.card h3 {
+    margin-bottom:10px;
+}
+
+.card:hover {
+    transform:translateY(-10px) scale(1.03);
+    box-shadow:0 15px 35px rgba(0,0,0,0.3);
+}
+
+/* efek glow */
+.card::before {
+    content:"";
+    position:absolute;
+    width:150%;
+    height:150%;
+    background:rgba(255,255,255,0.1);
+    top:-50%;
+    left:-50%;
+    transform:rotate(25deg);
+    transition:0.5s;
+}
+
+.card:hover::before {
+    top:-20%;
+    left:-20%;
+}
+
+/* BRANDS */
+.brands img {
+    width:100px;
+    margin:10px;
+    filter: grayscale(100%);
+    transition:0.3s;
+}
+
+.brands img:hover {
+    filter: grayscale(0%);
+}
+
+/* FOOTER */
+footer {
+    background:#111;
+    color:white;
+    padding:30px;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+
+    .menu-toggle {
+        display:block;
+    }
+
+    .nav-links {
+        position:absolute;
+        top:60px;
+        right:0;
+        background:#111;
+        flex-direction:column;
+        width:200px;
+        text-align:center;
+        display:none;
+        padding:20px 0;
+    }
+
+    .nav-links.active {
+        display:flex;
+    }
+
+    .hero h1 {
+        font-size:38px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <div class="logo">
+    <img src="CCTV HONG ABADI.png" alt="Logo Hong Abadi">
+     <span>HONG ABADI NETWORK ENGINEER</span>
+</div>
+
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <div class="nav-links" id="navLinks">
+        <a href="#">Home</a>
+        <a href="#about">Tentang</a>
+        <a href="#services">Layanan</a>
+        <a href="#contact">Kontak</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+
+    <div class="slide active" style="background-image:url('https://www.jagatreview.com/wp-content/uploads/2020/08/Products-2.jpg')"></div>
+    <div class="slide" style="background-image:url('https://emscctv.com/wp-content/uploads/2023/12/Paket-CCTV-Analog-Kamera-Dahua.jpg')"></div>
+    <div class="slide" style="background-image:url('https://jete.id/wp-content/uploads/2025/01/image4-3.jpg')"></div>
+    <div class="slide" style="background-image:url('https://www.99.co/id/panduan/wp-content/uploads/2025/08/03165911/bisnis-wifi.jpg')"></div>
+
+    <div class="overlay"></div>
+
+    <div class="hero-content">
+        <h1>HONG ABADI</h1>
+        <p>Network Engineer • CCTV • WiFi • Infrastruktur Jaringan Profesional</p>
+       <a href="https://wa.me/6285640797782" class="btn" target="_blank">
+    Hubungi Kami
+</a>
+    </div>
+
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+    <h2 class="section-title">Tentang Kami</h2>
+    <p>
+    Hong Abadi Network Engineer adalah penyedia layanan profesional di bidang jaringan dan keamanan,
+    melayani pemasangan CCTV, paralel WiFi, serta berbagai kebutuhan IT untuk rumah, kantor, dan bisnis, hingga
+    Fotokopi Dan Print
+    </p>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+    <h2 class="section-title">Layanan Kami</h2>
+    <div class="services">
+
+        <div class="card" onclick="openCCTV()">
+        <i class="fas fa-video"></i>
+        <h3>CCTV</h3>
+        <p>Instalasi CCTV profesional dengan kualitas terbaik & rapi.</p>
+        </div>
+
+        <div class="card">
+            <i class="fas fa-wifi"></i>
+            <h3>WiFi</h3>
+            <p>Jangkauan WiFi luas, stabil, dan minim gangguan.</p>
+        </div>
+
+        <div class="card">
+            <i class="fas fa-print"></i>
+            <h3>Fotokopi & Print</h3>
+            <p>Layanan cetak cepat, hasil tajam dan berkualitas.</p>
+        </div>
+
+        <div class="card">
+            <i class="fas fa-pencil-ruler"></i>
+            <h3>Penjualan Alat Tulis & Part Networking</h3>
+            <p>Tersedia perlengkapan Alat Tulis dan Kebutuhan Part Neworking</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- BRAND -->
+<section>
+    <h2 class="section-title">Brand CCTV</h2>
+    <div class="brands">
+        <img src="hikvision-logo.png">
+        <img src="hilook-logo.png">
+        <img src="ezviz-logo.png">
+        <img src="dahua-logo.png">
+        <img src="tiandy-logo.png">
+        <img src="jaify-logo.png">
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <h2 class="section-title">Kontak</h2>
+    <p>📍 Jalan Raya Patean Curugsewu, Kendal
+    <p>📞 085-640-797-782</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 Hong Abadi Network Engineer</p>
+</footer>
+
+<!-- SCRIPT -->
+<script>
+// Perintah Untuk Kembali
+function backToMenu() {
+    // tutup paket
+    closePaket();
+
+    // buka lagi pilihan CCTV
+    openCCTV();
+}
+
+function closePaket() {
+    document.getElementById("paketCCTV").style.display = "none";
+}
+
+let slides = document.querySelectorAll('.slide');
+let index = 0;
+
+function changeSlide() {
+    slides.forEach(slide => slide.classList.remove('active'));
+    slides[index].classList.add('active');
+}
+
+setInterval(() => {
+    index = (index + 1) % slides.length;
+    changeSlide();
+}, 4000);
+
+function toggleMenu(){
+    document.getElementById("navLinks").classList.toggle("active");
+}
+function openCCTV() {
+    document.getElementById("cctvModal").style.display = "block";
+}
+
+function closeCCTV() {
+    document.getElementById("cctvModal").style.display = "none";
+}
+
+/* klik luar modal untuk menutup */
+window.onclick = function(event) {
+    let modal = document.getElementById("cctvModal");
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+<!-- POPUP CCTV -->
+<div id="cctvModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeCCTV()">&times;</span>
+        <h2>Pilih Jenis CCTV</h2>
+
+        <div class="cctv-options">
+        <div class="option" onclick="showPaket('analog')">📷 CCTV Analog</div>
+        <div class="option" onclick="showPaket('ipcam')">🌐 IP Camera</div>
+        <div class="option" onclick="showPaket('wireless')">📡 Wireless Camera</div>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>
