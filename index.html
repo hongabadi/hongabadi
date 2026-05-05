@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+<link rel="icon" type="image/png" href="Hongicon.png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hong Abadi Network Engineer</title>
 
 <style>
+    
 /* MODAL */
 .modal {
     display:none;
@@ -309,6 +311,70 @@ footer {
         font-size:38px;
     }
 }
+/* BRAND SECTION BACKGROUND */
+.brand-section {
+    position: relative;
+    padding:80px 20px;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    overflow:hidden;
+}
+
+/* efek pattern halus */
+.brand-section::before {
+    content:"";
+    position:absolute;
+    width:200%;
+    height:200%;
+    background: radial-gradient(circle, rgba(206, 193, 10, 0.05) 1px, transparent 1px);
+    background-size:40px 40px;
+    top:0;
+    left:0;
+    animation: moveBg 20s linear infinite;
+}
+
+@keyframes moveBg {
+    from {transform: translate(0,0);}
+    to {transform: translate(-50px,-50px);}
+}
+
+/* GRID BRAND */
+.brands {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:25px;
+    position:relative;
+    z-index:2;
+}
+
+/* CARD LOGO */
+.brand-card {
+    background: #fff;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.1);
+    transition:0.4s;
+}
+
+.brand-card img {
+    width:100px;
+    filter:none;
+}
+
+/* HOVER EFFECT */
+.brand-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow:0 15px 35px rgba(0,0,0,0.5);
+}
+
+.brand-card:hover img {
+    filter: grayscale(0%) brightness(1.5);
+}
+
+/* judul biar kontras */
+.brand-section .section-title {
+    color:white;
+}
 </style>
 </head>
 
@@ -366,10 +432,10 @@ footer {
     <h2 class="section-title">Layanan Kami</h2>
     <div class="services">
 
-        <div class="card" onclick="openCCTV()">
-        <i class="fas fa-video"></i>
-        <h3>CCTV</h3>
-        <p>Instalasi CCTV profesional dengan kualitas terbaik & rapi.</p>
+        <div class="card">
+            <i class="fas fa-video"></i>
+            <h3>CCTV</h3>
+            <p>Instalasi CCTV profesional dengan kualitas terbaik & rapi.</p>
         </div>
 
         <div class="card">
@@ -394,15 +460,17 @@ footer {
 </section>
 
 <!-- BRAND -->
-<section>
+<section class="brand-section">
     <h2 class="section-title">Brand CCTV</h2>
     <div class="brands">
-        <img src="hikvision-logo.png">
-        <img src="hilook-logo.png">
-        <img src="ezviz-logo.png">
-        <img src="dahua-logo.png">
-        <img src="tiandy-logo.png">
-        <img src="jaify-logo.png">
+
+        <div class="brand-card"><img src="hikvision-logo.png"></div>
+        <div class="brand-card"><img src="hilook-logo.png"></div>
+        <div class="brand-card"><img src="ezviz-logo.png"></div>
+        <div class="brand-card"><img src="dahua-logo.png"></div>
+        <div class="brand-card"><img src="tiandy-logo.png"></div>
+        <div class="brand-card"><img src="jaify-logo.png"></div>
+
     </div>
 </section>
 
@@ -420,18 +488,6 @@ footer {
 
 <!-- SCRIPT -->
 <script>
-// Perintah Untuk Kembali
-function backToMenu() {
-    // tutup paket
-    closePaket();
-
-    // buka lagi pilihan CCTV
-    openCCTV();
-}
-
-function closePaket() {
-    document.getElementById("paketCCTV").style.display = "none";
-}
 
 let slides = document.querySelectorAll('.slide');
 let index = 0;
@@ -449,35 +505,9 @@ setInterval(() => {
 function toggleMenu(){
     document.getElementById("navLinks").classList.toggle("active");
 }
-function openCCTV() {
-    document.getElementById("cctvModal").style.display = "block";
-}
 
-function closeCCTV() {
-    document.getElementById("cctvModal").style.display = "none";
-}
 
-/* klik luar modal untuk menutup */
-window.onclick = function(event) {
-    let modal = document.getElementById("cctvModal");
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
 </script>
-<!-- POPUP CCTV -->
-<div id="cctvModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeCCTV()">&times;</span>
-        <h2>Pilih Jenis CCTV</h2>
-
-        <div class="cctv-options">
-        <div class="option" onclick="showPaket('analog')">📷 CCTV Analog</div>
-        <div class="option" onclick="showPaket('ipcam')">🌐 IP Camera</div>
-        <div class="option" onclick="showPaket('wireless')">📡 Wireless Camera</div>
-        </div>
-    </div>
-</div>
 </div>
 </body>
 </html>
