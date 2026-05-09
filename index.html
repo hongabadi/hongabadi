@@ -13,7 +13,10 @@
 <title>Hong Abadi Network Engineer</title>
 
 <style>
-    
+html{
+    scroll-behavior:smooth;
+}   
+
 /* MODAL */
 .modal {
     display:none;
@@ -380,6 +383,67 @@ footer {
 .brand-section .section-title {
     color:white;
 }
+/* PORTFOLIO */
+.portfolio-section{
+    background:#f5f7fa;
+    padding:80px 20px;
+}
+
+.portfolio-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+    margin-top:40px;
+}
+
+.portfolio-card{
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    transition:0.4s;
+}
+
+.portfolio-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 15px 35px rgba(0,0,0,0.2);
+}
+
+.portfolio-card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+}
+
+.portfolio-content{
+    padding:20px;
+}
+
+.portfolio-content h3{
+    color:#00c853;
+    margin-bottom:10px;
+}
+
+.portfolio-content p{
+    color:#555;
+    line-height:1.6;
+}
+
+/* BUTTON PORTFOLIO */
+.portfolio-btn{
+    display:inline-block;
+    margin-top:15px;
+    padding:10px 20px;
+    background:#00c853;
+    color:white;
+    border-radius:30px;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.portfolio-btn:hover{
+    background:#009624;
+}
 </style>
   /* Scrip Biar nama jadi HONG ABADI NETWORK ENGINEER */
   <script type="application/ld+json">
@@ -407,6 +471,7 @@ footer {
         <a href="#">Home</a>
         <a href="#about">Tentang</a>
         <a href="#services">Layanan</a>
+        <a href="#portfolio">Portofolio</a>
         <a href="#contact">Kontak</a>
     </div>
 </nav>
@@ -488,7 +553,105 @@ footer {
 
     </div>
 </section>
+<!-- PORTFOLIO -->
+<section id="portfolio" class="portfolio-section">
 
+    <h2 class="section-title">Portofolio Pemasangan CCTV</h2>
+
+    <div class="portfolio-grid">
+
+        <!-- FOTO 1 -->
+        <div class="portfolio-card">
+            <img src="portfolio/cctv1.jpeg" alt="">
+            <div class="portfolio-content">
+                <h3>Peternakan</h3>
+                <p>
+                    Instalasi CCTV outdoor
+                    dengan monitoring 24 jam dan Online langsung dari HP.
+                </p>
+            </div>
+        </div>
+
+        <!-- FOTO 2 -->
+        <div class="portfolio-card">
+            <img src="portfolio/cctv2.jpeg" alt="">
+            <div class="portfolio-content">
+                <h3>Peternakan Ayam</h3>
+                <p>
+                    Sistem keamanan Pemantauan 7 Cam menggunakan IP CAM Hikvision
+                </p>
+            </div>
+        </div>
+
+        <!-- FOTO 3 -->
+        <div class="portfolio-card">
+            <img src="portfolio/cctv3.jpeg" alt="">
+            <div class="portfolio-content">
+                <h3>Rumah</h3>
+                <p>
+                    Penataan kabel rapi dan profesional
+                    untuk area rumah modern + Perluas jaringan Wifi
+                </p>
+            </div>
+        </div>
+
+        <!-- FOTO 4 -->
+        <div class="portfolio-card">
+            <img src="portfolio/cctv4.jpeg" alt="">
+            <div class="portfolio-content">
+                <h3>Toko</h3>
+                <p>
+                    Pengawasan area luas dengan kamera
+                    Analog 14 Cam dan monitoring online.
+                </p>
+            </div>
+        </div>
+
+        <!-- FOTO 5 -->
+        <div class="portfolio-card">
+            <img src="portfolio/cctv5.jpeg" alt="">
+            <div class="portfolio-content">
+                <h3>Toko Kelontong</h3>
+                <p>
+                    Instalasi kamera modern untuk keamanan
+                    dan monitoring pelanggan.
+                </p>
+            </div>
+        </div>
+
+        <!-- FOTO 6 -->
+        <div class="portfolio-card">
+            <img src="portfolio/cctv6.jpeg" alt="">
+            <div class="portfolio-content">
+                <h3>Kantor</h3>
+                <p>
+                    Pemasangan Wiraless Cam
+                </p>
+            </div>
+        </div>
+
+        <!-- FOTO 7 -->
+        <div class="portfolio-card">
+            <img src="portfolio/cctv7.jpeg" alt="">
+            <div class="portfolio-content">
+                <h3>Perumahan</h3>
+                <p>
+                    Pemasangan Wiraless Cam, diperumahan Cluster. dengan instalasi Kabel yang rapi
+                </p>
+            </div>
+        </div>
+
+        <!-- FOTO 7 -->
+        <div class="portfolio-card">
+            <img src="portfolio/cctv8.jpeg" alt="">
+            <div class="portfolio-content">
+                <h3>CCTV Lingkungan</h3>
+                <p>
+                    Pemasangan Wiraless Cam untuk lingkungan RT dengan bugjet terbatas, dan pantauan yang maksimal
+                </p>
+            </div>
+        </div>
+    </div>
 <!-- CONTACT -->
 <section id="contact">
     <h2 class="section-title">Kontak</h2>
